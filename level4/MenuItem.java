@@ -1,4 +1,4 @@
-package level2;
+package level4;
 
 public class MenuItem {
     private String name;
@@ -21,7 +21,7 @@ public class MenuItem {
         return price;
     }
 
-    public String getexplanation() {
+    public String getExplanation() {
         return explanation;
     }
 
