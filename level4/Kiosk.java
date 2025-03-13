@@ -42,7 +42,7 @@ public class Kiosk {
             }
             System.out.println("0. 종료    | 종료");
 
-            System.out.print("카테고리 선택 : ");
+            System.out.print("입력 : ");
             int categoryChoice;
             try {
                 categoryChoice = input.nextInt();
@@ -70,7 +70,7 @@ public class Kiosk {
         }
         System.out.println("0. 뒤로가기");
 
-        System.out.print("메뉴 선택 : ");
+        System.out.print("입력 : ");
         int itemChoice;
         try {
             itemChoice = input.nextInt();
