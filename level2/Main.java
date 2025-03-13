@@ -31,7 +31,7 @@ public class Main {
             if(a==0) {
                 System.out.println("프로그램을 종료합니다.");
                 break;
-            } else{
+            } else {
                 try{
                     MenuItem item = menuItems.get(a-1);
                     System.out.printf("선택한 메뉴 : %s, W %.2f, %s\n", item.getName(), item.getPrice(), item.getexplanation());
