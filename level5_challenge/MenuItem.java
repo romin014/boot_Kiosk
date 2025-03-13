@@ -1,4 +1,4 @@
-package level5;
+package level5_challenge;
 
 public class MenuItem {
     private String name;
