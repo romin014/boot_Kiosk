@@ -18,7 +18,7 @@ public enum MenuItem {
         this.explanation = explanation;
     }
 
-    // Getter 메서드
+    // Getter
     public String getName() {
         return name;
     }

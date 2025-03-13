@@ -11,7 +11,6 @@ public class Menu {
     public Menu(String categoryName) {
         this.categoryName = categoryName;
         this.menuItems = new ArrayList<>();
-        // MenuItem enum에서 항목 추가
         addMenuItems();
     }
 

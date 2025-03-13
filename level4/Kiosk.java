@@ -6,14 +6,12 @@ import java.util.Scanner;
 
 public class Kiosk {
     private List<Menu> menus; // 여러 카테고리를 관리하는 리스트
-
+    //생성자
     public Kiosk() {
         menus = new ArrayList<>();
-        // 카테고리와 메뉴 항목 추가
         Menu burgerMenu = new Menu("버거 메뉴");
         menus.add(burgerMenu);
 
-        // 다른 카테고리를 추가할 수 있습니다.
     }
 
     public void start() {
