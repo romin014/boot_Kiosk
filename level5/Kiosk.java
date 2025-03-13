@@ -1,4 +1,4 @@
-package level4;
+package level5;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -6,9 +6,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Kiosk {
-    private List<Menu> menus = new ArrayList<>(); // 여러 카테고리를 관리하는 리스트
+    private List<Menu> menus = new ArrayList<>();; // 여러 카테고리를 관리하는 리스트
+    private ShoppingCart cart = new ShoppingCart();
     //생성자
     public Kiosk() {
+
         // 메뉴 카테고리 및 항목 추가
         Menu burgerMenu = new Menu("Burgers");
         burgerMenu.setMenuItem(new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"));
@@ -16,6 +18,10 @@ public class Kiosk {
         burgerMenu.setMenuItem(new MenuItem("CheeseBurger", 6.9, "포테이토 번과 비프패티, 치즈가 토핑된 치즈버거"));
         burgerMenu.setMenuItem(new MenuItem("HamBurger", 5.4, "비프패티를 기반으로 야채가 들어간 기본버거"));
         menus.add(burgerMenu);
+
+        //주문 메뉴 추가
+        //Menu orderMenu = new Menu("Order");
+
 
         // 음료수 카테고리 추가
         Menu drinksMenu = new Menu("Drinks");
@@ -40,15 +46,24 @@ public class Kiosk {
             }
             System.out.println("0. 종료    | 종료");
 
+            System.out.println("[ORDER MENU]");
+            System.out.println("4. Orders    | 장바구니를 확인 후 주문합니다.");
+            System.out.println("5. Cancel     | 진행중인 주문을 취소합니다.");
+
             System.out.print("입력 : ");
-            int categoryChoice;
+            int categoryChoice = input.nextInt();;
             try {
-                categoryChoice = input.nextInt();
                 if (categoryChoice == 0) {
                     System.out.println("프로그램을 종료합니다.");
                     break;
                 } else if (categoryChoice > 0 && categoryChoice <= menus.size()) {
                     showMenuItems(menus.get(categoryChoice - 1), input);
+                } else if (categoryChoice == 4) {
+                    // 장바구니 확인
+                    cart.viewCart();
+                } else if (categoryChoice == 5) {
+                    System.out.println("진행중인 주문이 취소되었습니다.");
+                    cart = new ShoppingCart(); // 장바구니 초기화
                 } else {
                     System.out.println("잘못된 입력입니다. 카테고리를 선택해주세요.");
                 }
