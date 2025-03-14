@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Kiosk {
     private List<Menu> menus = new ArrayList<>();; // 여러 카테고리를 관리하는 리스트
     private ShoppingCart cart = new ShoppingCart();
+    private List<MenuItem> cartItems = new ArrayList<>();
     //생성자
     public Kiosk() {
 
@@ -92,6 +93,26 @@ public class Kiosk {
             } else if (itemChoice > 0 && itemChoice <= items.size()) {
                 MenuItem selectedItem = items.get(itemChoice - 1);
                 System.out.printf("선택한 메뉴 : %s, W %.2f, %s\n", selectedItem.getName(), selectedItem.getPrice(), selectedItem.getExplanation());
+
+                System.out.printf("%s 이 장바구니에 추가하시겠습니까?\n", selectedItem.getName());
+                System.out.println("1. 확인   2. 취소");
+
+                int confirmChoice;
+                try {
+                    confirmChoice = input.nextInt();
+                    if (confirmChoice == 1) {
+                        cartItems.add(selectedItem);
+                        System.out.printf("%s 이 장바구니에 추가되었습니다.\n", selectedItem.getName());
+                    } else if (confirmChoice == 2) {
+                        System.out.println("취소되었습니다.");
+                    } else {
+                        System.out.println("잘못된 입력입니다.");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("잘못된 입력입니다.");
+                    input.nextLine(); // 잘못된 입력을 소비
+                }
+
             } else {
                 System.out.println("잘못된 입력입니다. 메뉴의 번호를 선택해주세요.");
             }
